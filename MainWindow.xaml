@@ -1,0 +1,133 @@
+﻿<Window x:Class="Calculator_wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator_wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="540" Width="330">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1.1*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Section One -->
+        <Grid Grid.Row="0" Background="#FFF0F0F0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Width="20" Height="20" Source="Resource\more.png"/>
+            <Label Content="Standart" FontSize="25" Grid.Column="1" FontFamily="Arial"
+                   FontWeight="Regular"
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                   Padding="10 0 0 0"/>
+            <Image Grid.Column="2" Width="20" Height="20" Source="Resource\wall-clock.png"/>
+        </Grid>
+        <!-- Section two -->
+        <Grid Grid.Row="1" Background="#FFF0F0F0">
+            <Label  HorizontalContentAlignment="Right"  VerticalContentAlignment="Top"
+                   FontSize="15" FontWeight="Medium" FontFamily="Arial" Padding="0 10 20 0" 
+                   Visibility="Hidden" Name="lbl_resultText"/>
+            <Label Content="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom"
+                   FontSize="50" FontWeight="Medium" FontFamily="Arial" Padding="0 0 10 0"
+                   Name="lbl_result" />
+        </Grid>
+
+        <!-- MC olanlar -->
+        <Grid Grid.Row="2" Background="#FFF0F0F0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label Content="MC" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"
+                   FontSize="15" FontWeight="Medium"  Grid.Column="0"/>
+            <Label Content="MR" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"
+                   FontSize="15" FontWeight="Medium" Grid.Column="1"/>
+            <Label Content="M+" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"
+                   FontSize="15" FontWeight="Medium" Grid.Column="2"/>
+            <Label Content="M-" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"
+                   FontSize="15" FontWeight="Medium" Grid.Column="3"/>
+            <Label Content="MS" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"
+                   FontSize="15" FontWeight="Medium" Grid.Column="4"/>
+            <Label Content="M^" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"
+                   FontSize="15" FontWeight="Medium" Grid.Column="5"/>
+        </Grid>
+        <!-- Reqemler -->
+        <Border>
+
+        </Border>
+        <Grid Grid.Row="3" Background="#FFF0F0F0" >
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Background="#FFF0F0F0" BorderBrush="#FFD8D8D8" Content="%" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"
+                  Name="btn_percentage" FontSize="35" FontWeight="Medium"  Grid.Column="0"
+                    Click="btn_percentage_Click"/>
+            <Button Background="#FFF0F0F0" BorderBrush="#FFD8D8D8" Grid.Column="1" Name="btn_root" Click="btn_root_Click">
+                <Image Width="35" Height="35" Source="Resource\square-root.png"/>
+            </Button>
+            <Button Background="#FFF0F0F0" BorderBrush="#FFD8D8D8" Grid.Column="2" Name="btn_power" Click="btn_power_Click" >
+                <Image Width="35" Height="35" Source="Resource\power.png"/>
+            </Button>
+            <Button Background="#FFF0F0F0" BorderBrush="#FFD8D8D8" Grid.Column="3" Content="1/x" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"
+                   FontSize="30" FontWeight="Medium" Name="btn_1x" Click="btn_1x_Click"/>
+            <Button Background="#FFF0F0F0" BorderBrush="#FFD8D8D8" Content="CE" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"
+                   FontSize="30" FontWeight="Medium" Grid.Column="0" Grid.Row="1" Name="btn_CE"/>
+            
+            <Button Name="btn_7" Click="btn_7_Click" Background="White" BorderBrush="#FFF0F0F0"  Grid.Column="0" Grid.Row="2" Content="7" FontSize="35"/>
+            <Button Name="btn_4" Click="btn_4_Click" Background="White" BorderBrush="#FFF0F0F0" Grid.Column="0" Grid.Row="3" Content="4" FontSize="35"/>
+            <Button Name="btn_1" Click="btn_1_Click" Background="White" BorderBrush="#FFF0F0F0" Grid.Column="0" Grid.Row="4" Content="1" FontSize="35"/>
+            <Button Name="btn_pos_neg" Click="btn_pos_neg_Click" Background="#FFF0F0F0" BorderBrush="#FFD8D8D8" Grid.Column="0" Grid.Row="5" Content="+/-" FontSize="35"/>
+
+            <Button Name="clear" Background="#FFF0F0F0" BorderBrush="#FFD8D8D8" Click="clear_Click" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"
+                   FontSize="30" FontWeight="Medium"  Grid.Column="1" Grid.Row="1" Content="C"/>
+            <Button Name="btn_8" Click="btn_8_Click" Background="White" BorderBrush="#FFF0F0F0" Grid.Column="1" Grid.Row="2" Content="8" FontSize="35"/>
+            <Button Name="btn_5" Click="btn_5_Click" Background="White" BorderBrush="#FFF0F0F0" Grid.Column="1" Grid.Row="3" Content="5" FontSize="35"/>
+            <Button Name="btn_2" Click="btn_2_Click" Background="White" BorderBrush="#FFF0F0F0" Grid.Column="1" Grid.Row="4" Content="2" FontSize="35"/>
+            <Button Name="btn_0" Click="btn_0_Click" Background="White" BorderBrush="#FFF0F0F0" Grid.Column="1" Grid.Row="5" Content="0" FontSize="35"/>
+
+
+            <Button x:Name="delete" Click="delete_Click" Background="#FFF0F0F0" BorderBrush="#FFD8D8D8" Grid.Column="2" Grid.Row="1">
+                <Image Width="35" Height="35" Source="Resource\delete.png"/>
+            </Button>
+            <Button Name="btn_9" Click="btn_9_Click" Background="White" BorderBrush="#FFF0F0F0" Grid.Column="2" Grid.Row="2" Content="9" FontSize="35"/>
+            <Button Name="btn_6" Click="btn_6_Click" Background="White" BorderBrush="#FFF0F0F0" Grid.Column="2" Grid.Row="3" Content="6" FontSize="35"/>
+            <Button Name="btn_3" Click="btn_3_Click" Background="White" BorderBrush="#FFF0F0F0" Grid.Column="2" Grid.Row="4" Content="3" FontSize="35"/>
+            <Button Name="btn_dot" Click="btn_dot_Click" Background="#FFF0F0F0" BorderBrush="#FFD8D8D8" Grid.Column="2" Grid.Row="5" Content="," FontSize="35"/>
+
+            <Button Name="divise" Click="divise_Click" Background="#FFF0F0F0" BorderBrush="#FFD8D8D8"  Grid.Column="3" Grid.Row="1">
+                <Image Width="35" Height="35" Source="Resource\division.png"/>
+            </Button>
+            <Button Name="btn_vurma" Click="btn_vurma_Click" Background="#FFF0F0F0" BorderBrush="#FFD8D8D8" Grid.Column="3" Grid.Row="2" Content="x" FontSize="35"/>
+            <Button Name="btn_minus" Click="btn_minus_Click" Background="#FFF0F0F0" BorderBrush="#FFD8D8D8" Grid.Column="3" Grid.Row="3" Content="-" FontSize="35"/>
+            <Button Name="btn_plus" Click="btn_plus_Click" Background="#FFF0F0F0" BorderBrush="#FFD8D8D8" Grid.Column="3" Grid.Row="4" Content="+" FontSize="35"/>
+            <Button Name="btn_equal" Click="btn_equal_Click" Background="#FFF0F0F0" BorderBrush="#FFD8D8D8" Grid.Column="3" Grid.Row="5" Content="=" FontSize="35"/>
+        </Grid>
+
+    </Grid>
+</Window>
